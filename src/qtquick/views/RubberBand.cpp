@@ -12,6 +12,7 @@
 #include "RubberBand.h"
 #include "Config.h"
 #include "qtquick/Platform.h"
+#include "qtquick/ViewFactory.h"
 
 #include <QQmlEngine>
 
@@ -25,8 +26,7 @@ RubberBand::RubberBand(QQuickItem *parent)
 {
     setVisible(false);
     setZ(1000);
-    QQuickItem *visualItem = createItem(
-        plat()->qmlEngine(), QStringLiteral("qrc:/kddockwidgets/qtquick/views/qml/RubberBand.qml"));
+    QQuickItem *visualItem = View::createItem(plat()->viewFactory()->rubberBandFilename().toString(), this);
     visualItem->setParent(this);
     visualItem->setParentItem(this);
 }

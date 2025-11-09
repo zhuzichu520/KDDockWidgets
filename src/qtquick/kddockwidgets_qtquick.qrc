@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/kddockwidgets/qtquick/">
+    <qresource prefix="/kddockwidgets/qtquick">
         <file>views/qml/DockWidget.qml</file>
         <file>views/qml/DropArea.qml</file>
         <file>views/qml/FloatingWindow.qml</file>

@@ -81,6 +81,8 @@ public:
     virtual QUrl groupFilename() const;
     virtual QUrl floatingWindowFilename() const;
     virtual QUrl separatorFilename() const;
+    virtual QUrl rubberBandFilename() const;
+    virtual QUrl classicIndicatorsOverlayFilename() const;
 
     KDDockWidgets::Core::Action *createAction(Core::DockWidget *, const char *debugName) const override;
 

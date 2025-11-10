@@ -34,15 +34,15 @@ class DOCKS_EXPORT IndicatorWindow : public QQuickView
     Q_OBJECT
 public:
     explicit IndicatorWindow();
+    explicit IndicatorWindow(QQmlEngine* engine, QWindow *parent = nullptr);
     ~IndicatorWindow() override;
 
-    /// Set a callback if you want to be notified of a QQuickView being created
     static void setQuickWindowCreationCallback(const IndicatorWindowCreationCallback &);
-
-    void init(const QUrl &rootQml);
+    void init();
 
 private:
     static IndicatorWindowCreationCallback s_quickWindowCreationCallback;
+
 };
 
 class ClassicDropIndicatorOverlay : public QObject, public Core::ClassicIndicatorWindowViewInterface
@@ -68,6 +68,8 @@ class ClassicDropIndicatorOverlay : public QObject, public Core::ClassicIndicato
                    indicatorsVisibleChanged)
     Q_PROPERTY(bool tabIndicatorVisible READ tabIndicatorVisible NOTIFY indicatorsVisibleChanged)
     Q_PROPERTY(QRect hoveredGroupRect READ hoveredGroupRect NOTIFY hoveredGroupRectChanged)
+    Q_PROPERTY(QUrl qmlSouceUrl READ qmlSouceUrl NOTIFY
+                   qmlSouceUrlChanged)
     Q_PROPERTY(KDDockWidgets::DropLocation currentDropLocation READ currentDropLocation NOTIFY
                    currentDropLocationChanged)
 public:
@@ -106,6 +108,7 @@ Q_SIGNALS:
     void indicatorsVisibleChanged();
     void hoveredGroupRectChanged();
     void currentDropLocationChanged();
+    void qmlSouceUrlChanged();
 
 private:
     Core::ClassicDropIndicatorOverlay *const m_classicIndicators;

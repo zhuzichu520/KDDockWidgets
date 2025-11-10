@@ -220,6 +220,16 @@ QUrl ViewFactory::separatorFilename() const
     return QUrl(QStringLiteral("%1/Separator.qml").arg(kddwResourcePrefix()));
 }
 
+QUrl ViewFactory::rubberBandFilename() const
+{
+    return QUrl(QStringLiteral("qrc:/kddockwidgets/qtquick/views/qml/RubberBand.qml"));
+}
+
+QUrl ViewFactory::classicIndicatorsOverlayFilename() const
+{
+    return QUrl(QStringLiteral("qrc:/kddockwidgets/qtquick/views/qml/ClassicIndicatorsOverlay.qml"));
+}
+
 Core::View *
 ViewFactory::createSegmentedDropIndicatorOverlayView(Core::SegmentedDropIndicatorOverlay *,
                                                      Core::View *) const
